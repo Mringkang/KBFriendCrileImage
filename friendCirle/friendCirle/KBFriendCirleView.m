@@ -10,7 +10,7 @@
 #import "UIView+Extension.h"
 #import "SDPhotoBrowser.h"
 #import "UIImageView+WebCache.h"
-
+#import "YYWebImage.h"
 
 #define kMarGin 10
 
@@ -95,8 +95,8 @@
         
         imageView.hidden = NO;
         // 显示的imageView赋值
-        [imageView setImageWithURL:[NSURL URLWithString:obj] placeholderImage:nil];
-        
+//        [imageView setImageWithURL:[NSURL URLWithString:obj] placeholderImage:nil];
+        [imageView yy_setImageWithURL:[NSURL URLWithString:obj] options:YYWebImageOptionProgressive];
         imageView.frame = CGRectMake(columnIndex * (itemW + margin), rowIndex * (itemH + margin), itemW, itemH);
         
     }];
@@ -132,7 +132,9 @@
     if (array.count == 1) {
         return [UIScreen mainScreen].bounds.size.width / 2;
     } else {
-        CGFloat w = [UIScreen mainScreen].bounds.size.width > 320 ? 110 : 90;
+//        CGFloat w = [UIScreen mainScreen].bounds.size.width > 320 ? 110 : 90;
+        
+        CGFloat w = ([UIScreen mainScreen].bounds.size.width - 2 * kMarGin)/3;
         return w;
     }
 }

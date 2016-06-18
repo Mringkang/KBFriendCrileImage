@@ -10,6 +10,13 @@
 #import "KBFriendCirleView.h"
 #import "UIView+Extension.h"
 
+
+@interface KBTableViewCell ()
+
+@property (nonatomic, strong) KBFriendCirleView *view;
+
+@end
+
 @implementation KBTableViewCell
 
 
@@ -18,12 +25,9 @@
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         
         KBFriendCirleView *view = [[KBFriendCirleView alloc]init];
-        
-        view.imageUrls = imageUrls;
-        
+        self.view = view;
         [self addSubview:view];
         
-        self.viewH = view.height;
         
         
         
@@ -31,6 +35,17 @@
 
 
     return self;
+
+
+}
+
+- (void)setImageUrls:(NSArray *)imageUrls{
+
+    _imageUrls = imageUrls;
+    
+    self.view.imageUrls = imageUrls;
+    self.viewH = self.view.height;
+
 
 
 }

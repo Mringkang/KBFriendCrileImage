@@ -71,15 +71,14 @@
     
         cell = [[KBTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell" andWithUrl:self.imageUrls];
     }
-
+    // 赋值
+    cell.imageUrls = self.imageUrls;
     
     return cell;
 }
 
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-
-//    KBTableViewCell *cell = (KBTableViewCell *)[self.tableView cellForRowAtIndexPath:indexPath];
     
     return 400;;
     

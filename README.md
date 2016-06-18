@@ -2,7 +2,7 @@
 朋友圈九宫格图片demo
 
 
-![示例gif](http://i1.buimg.com/0a6007d10603ff5a.gif)
+![示例gif](http://i1.buimg.com/eb8a814079e28d58.gif)
 
 
 ####导入头文件, 一句话实现9宫格, 4张图片显示2行2列, 3张以下显示一行,  

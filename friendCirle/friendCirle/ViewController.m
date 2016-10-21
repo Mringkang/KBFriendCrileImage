@@ -28,9 +28,11 @@
                        @"http://f.hiphotos.baidu.com/image/pic/item/21a4462309f79052cde894370ef3d7ca7acbd5c0.jpg",
                        @"http://pic.818today.com/imgsy/image/2015/1223/6358646689684556034921399.jpg",
                        @"http://e.hiphotos.baidu.com/image/pic/item/55e736d12f2eb9387fe9d2f2d7628535e5dd6f2e.jpg",
-                       @"http://g.hiphotos.baidu.com/image/pic/item/ae51f3deb48f8c54a27fa9c83e292df5e1fe7fac.jpg",
+                      @"http://g.hiphotos.baidu.com/image/pic/item/ae51f3deb48f8c54a27fa9c83e292df5e1fe7fac.jpg",
                        @"http://pic3.nipic.com/20090715/2106234_121535005_2.jpg",
                        @"http://photocdn.sohu.com/20160414/Img444131072.jpg"
+                       
+                    
                        ];
     }
 
@@ -49,6 +51,7 @@
     fView.imageUrls = self.imageUrls;
     [self.view addSubview:fView];
     
+    NSLog(@"%f",fView.height);
     
     
 

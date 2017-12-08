@@ -57,7 +57,7 @@
     if (self.bounds.size.width * (imageSize.height / imageSize.width) > self.bounds.size.height) {
         if (!_longScrollView) {
             UIScrollView *longScrollView = [[UIScrollView alloc] init];
-            longScrollView.backgroundColor = [UIColor blueColor];
+            longScrollView.backgroundColor = [UIColor blackColor];
             UIImageView *imageView = [[UIImageView alloc] init];
             imageView.image = self.image;
             _longImageView = imageView;
@@ -107,7 +107,7 @@
 {
     if (!_zoomScroolView) {
         _zoomScroolView = [[UIScrollView alloc] initWithFrame:self.bounds];
-        _zoomScroolView.backgroundColor = [UIColor whiteColor];
+        _zoomScroolView.backgroundColor = [UIColor blackColor];
         _zoomScroolView.contentSize = self.bounds.size;
         
         UIImageView *zoomImageView = [[UIImageView alloc] initWithImage:self.image];

@@ -8,13 +8,12 @@
 
 #import "KBFriendCirleView.h"
 #import "UIView+Extension.h"
-#import "SDPhotoBrowser.h"
 #import "UIImageView+WebCache.h"
 #import "YYWebImage.h"
 
 #define kMarGin 10
 
-@interface KBFriendCirleView ()<SDPhotoBrowserDelegate>
+@interface KBFriendCirleView ()
 
 @property (nonatomic, strong) NSArray *imageViewsArray;
 
@@ -118,12 +117,7 @@
 - (void)tapImageView:(UITapGestureRecognizer *)tap
 {
     UIView *imageView = tap.view;
-    SDPhotoBrowser *browser = [[SDPhotoBrowser alloc] init];
-    browser.currentImageIndex = imageView.tag;
-    browser.sourceImagesContainerView = self;
-    browser.imageCount = self.imageUrls.count;
-    browser.delegate = self;
-    [browser show];
+    
 }
 
 #pragma mark 返回item的宽
@@ -154,19 +148,6 @@
 }
 
 
-#pragma mark - SDPhotoBrowserDelegate
-- (NSURL *)photoBrowser:(SDPhotoBrowser *)browser highQualityImageURLForIndex:(NSInteger)index
-{
-    NSString *imageName = self.imageUrls[index];
-    NSURL *url = [NSURL URLWithString:imageName];
-    return url;
-}
-
-- (UIImage *)photoBrowser:(SDPhotoBrowser *)browser placeholderImageForIndex:(NSInteger)index
-{
-    UIImageView *imageView = self.subviews[index];
-    return imageView.image;
-}
 
 
 @end

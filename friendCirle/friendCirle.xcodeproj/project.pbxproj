@@ -53,6 +53,8 @@
 		4EF568B81D15905400EE811D /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EF568B71D15905400EE811D /* libsqlite3.tbd */; };
 		4EF568BB1D15920300EE811D /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EF568BA1D15920300EE811D /* TableViewController.m */; };
 		4EF568BE1D1592D500EE811D /* KBTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EF568BD1D1592D500EE811D /* KBTableViewCell.m */; };
+		88DCF2231FDA929800255CBC /* KBPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 881536231FDA914A004CAD30 /* KBPhotoBrowser.m */; };
+		88DCF2241FDA929D00255CBC /* KBImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 881536221FDA9149004CAD30 /* KBImageView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -407,6 +409,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88DCF2241FDA929D00255CBC /* KBImageView.m in Sources */,
+				88DCF2231FDA929800255CBC /* KBPhotoBrowser.m in Sources */,
 				4E37B4801D13ACCE000304F1 /* SDWebImageCompat.m in Sources */,
 				4EF568BB1D15920300EE811D /* TableViewController.m in Sources */,
 				4E37B4851D13ACCE000304F1 /* SDWebImageManager.m in Sources */,

@@ -12,7 +12,7 @@
 
 @protocol KBPhotoBrowserDelegate <NSObject>
 
-- (NSString *)photoBrowser:(KBPhotoBrowser *)browser highImageURLForIndex:(NSInteger)index;
+- (void)photoBrowser:(KBPhotoBrowser *)browser andWithCurentImageView:(UIImageView *)curentImageView highImageURLForIndex:(NSInteger)index;
 
 @end
 

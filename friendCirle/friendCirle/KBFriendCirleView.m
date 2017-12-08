@@ -10,10 +10,11 @@
 #import "UIView+Extension.h"
 #import "UIImageView+WebCache.h"
 #import "YYWebImage.h"
+#import "KBPhotoBrowser.h"
 
 #define kMarGin 10
 
-@interface KBFriendCirleView ()
+@interface KBFriendCirleView ()<KBPhotoBrowserDelegate>
 
 @property (nonatomic, strong) NSArray *imageViewsArray;
 
@@ -37,6 +38,8 @@
     for (int i = 0; i < 9; i++) {
         UIImageView *imageView = [UIImageView new];
         imageView.backgroundColor = [UIColor darkGrayColor];
+        imageView.clipsToBounds = YES;
+        imageView.contentMode = UIViewContentModeScaleAspectFill;
         [self addSubview:imageView];
         imageView.userInteractionEnabled = YES;
         imageView.tag = i;
@@ -114,9 +117,13 @@
 
 #pragma mark - private actions
 
-- (void)tapImageView:(UITapGestureRecognizer *)tap
+- (void)tapImageView:(UITapGestureRecognizer *)sender
 {
-    UIView *imageView = tap.view;
+    KBPhotoBrowser *bro = [[KBPhotoBrowser alloc]init];
+    bro.imageCount = self.imageUrls.count;
+    bro.delegate = self;
+    bro.currentImageIndex = sender.view.tag;
+    [bro show];
     
 }
 
@@ -146,6 +153,15 @@
         return 3;
     }
 }
+
+#pragma mark  返回图片的地址或者名字
+- (void)photoBrowser:(KBPhotoBrowser *)browser andWithCurentImageView:(UIImageView *)curentImageView highImageURLForIndex:(NSInteger)index{
+    
+    [curentImageView yy_setImageWithURL:[NSURL URLWithString:self.imageUrls[index]] options:YYWebImageOptionProgressive];
+    
+}
+
+
 
 
 

@@ -116,11 +116,10 @@
 - (void)setupImageOfImageViewForIndex:(NSInteger)index{
     KBImageView *imageView = _scrollView.subviews[index];
     self.currentImageIndex = index;
-    NSString *imageName;
-    if ([self.delegate respondsToSelector:@selector(photoBrowser:highImageURLForIndex:)]) {
-        imageName = [self.delegate photoBrowser:self highImageURLForIndex:index];
+    if ([self.delegate respondsToSelector:@selector(photoBrowser:andWithCurentImageView:highImageURLForIndex:)]) {
+        [self.delegate photoBrowser:self andWithCurentImageView:imageView highImageURLForIndex:index];
     }
-    imageView.image = [UIImage imageNamed:imageName];
+    
 }
 
 - (void)photoClick:(UITapGestureRecognizer *)recognizer

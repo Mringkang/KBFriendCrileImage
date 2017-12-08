@@ -122,20 +122,26 @@
     
 }
 
-- (void)photoClick:(UITapGestureRecognizer *)recognizer
-{
-    _scrollView.hidden = YES;
-//    _willDisappear = YES;
+- (void)photoClick:(UITapGestureRecognizer *)recognizer{
     
-//    KBImageView *currentImageView = (KBImageView *)recognizer.view;
+    
+    KBImageView *currentImageView = (KBImageView *)recognizer.view;
 //    NSInteger currentIndex = currentImageView.tag;
     
+    // 如果已经缩放, 单击, 就显示清除放大, 否则直接移除
+    if (currentImageView.isScaled) {
+        [currentImageView doubleTapToZommWithScale:1.0];
+    }else{
+        _scrollView.hidden = YES;
+        [UIView animateWithDuration:0.05 animations:^{
+            self.backgroundColor = [UIColor clearColor];
+        } completion:^(BOOL finished) {
+            [self removeFromSuperview];
+        }];
+    }
+    
+    
 
-    [UIView animateWithDuration:0.05 animations:^{
-        self.backgroundColor = [UIColor clearColor];
-    } completion:^(BOOL finished) {
-        [self removeFromSuperview];
-    }];
 }
 
 - (void)imageViewDoubleTaped:(UITapGestureRecognizer *)recognizer{
@@ -149,8 +155,7 @@
         scale = 2.0;
     }
     
-    KBImageView *view = (KBImageView *)recognizer.view;
-    [view doubleTapToZommWithScale:scale];
+    [imageView doubleTapToZommWithScale:scale];
 }
 
 
